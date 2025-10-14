@@ -22,7 +22,7 @@ Or clone manually:
 
 ```sh
 git clone https://github.com/omarmaharem/next-template
-cd next-tw-shadcn
+cd next-template
 ```
 
 2. Install dependencies:
