@@ -1,24 +1,18 @@
 // @ts-check
 import { defineConfig, globalIgnores } from "eslint/config";
-import path from "node:path";
-import { fileURLToPath } from "node:url";
-import { FlatCompat } from "@eslint/eslintrc";
+import nextVitals from "eslint-config-next/core-web-vitals";
+import nextTs from "eslint-config-next/typescript";
+import prettier from "eslint-config-prettier/flat";
+import reactHooks from "eslint-plugin-react-hooks";
+import eslintPluginPrettierRecommended from "eslint-plugin-prettier/recommended";
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-const compat = new FlatCompat({
-  baseDirectory: __dirname,
-});
-
-export default defineConfig([
-  globalIgnores([
-    "node_modules/**/*",
-    ".next/**/*",
-    "out/**/*",
-    "build/**/*",
-    "**/next-env.d.ts",
-  ]),
-  {
-    extends: compat.extends("next/core-web-vitals"),
-  },
+const eslintConfig = defineConfig([
+  ...nextVitals,
+  ...nextTs,
+  prettier,
+  reactHooks.configs.flat.recommended,
+  eslintPluginPrettierRecommended,
+  globalIgnores([".next/**", "out/**", "build/**", "next-env.d.ts"]),
 ]);
+
+export default eslintConfig;
