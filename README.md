@@ -41,7 +41,7 @@ Available npm scripts (see `package.json`):
 - shadcn/ui: `components.json` is configured for RSC and TSX. The generated components place their CSS into `src/app/globals.css` by default.
 - Fonts: the layout uses Next's built-in font utilities (Google font Geist) through `next/font`.
 
-## � Project structure (high level)
+## Project structure (high level)
 
 ```
 ├── src/
